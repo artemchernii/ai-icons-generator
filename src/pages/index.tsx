@@ -8,6 +8,9 @@ import { api } from "~/utils/api";
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
+  console.log(hello);
+  console.log(hello.data);
+
   return (
     <>
       <Head>
@@ -63,8 +66,11 @@ const AuthShowcase: React.FC = () => {
 
   const { data: secretMessage } = api.example.getSecretMessage.useQuery(
     undefined, // no input
-    { enabled: sessionData?.user !== undefined },
+    { enabled: sessionData?.user !== undefined }
   );
+
+  console.log(sessionData);
+  console.log(secretMessage);
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
