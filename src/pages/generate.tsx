@@ -12,14 +12,7 @@ const Generate: NextPage = () => {
     prompt: "",
   });
 
-  //   Classic change handler
-  //   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     console.log(e);
-  //     setForm({
-  //       ...form,
-  //       [e.target.name]: e.target.value,
-  //     });
-  //   };
+
 
   const generateIcon = api.generate.generateIcon.useMutation({
     onSuccess: (data) => {
@@ -32,7 +25,7 @@ const Generate: NextPage = () => {
     generateIcon.mutate({ prompt: form.prompt });
   };
 
-  const alternativeChangeHandler =
+  const handleFormChange =
     (key: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
       setForm({
         ...form,
@@ -59,7 +52,7 @@ const Generate: NextPage = () => {
               name="prompt"
               placeholder="Your prompt"
               value={form.prompt}
-              onChange={alternativeChangeHandler("prompt")}
+              onChange={handleFormChange("prompt")}
             />
             <Button type="submit" disabled={!form.prompt} variant="primary">
               Submit
