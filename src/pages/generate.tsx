@@ -1,6 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "~/components/Button";
 import FormGroup from "~/components/FormGroup";
 import Input from "~/components/Input";
@@ -12,13 +12,13 @@ const Generate: NextPage = () => {
     prompt: "",
   });
 
-
-
   const generateIcon = api.generate.generateIcon.useMutation({
     onSuccess: (data) => {
       console.log("here is data: ", data);
     },
   });
+
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
