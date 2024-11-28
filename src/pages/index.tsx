@@ -9,7 +9,6 @@ const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
   // TODO: Add auth
-  // REVIEW: 123123
   return (
     <>
       <Head>
