@@ -8,8 +8,13 @@ import { api } from "~/utils/api";
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
-
   console.log(hello);
+
+  const randomNumber = () => {
+    const randomNumber = Math.floor(Math.random() * 100);
+    return randomNumber;
+  };
+  console.log(randomNumber(), `random number`);
 
   // TODO: Add auth
   return (
